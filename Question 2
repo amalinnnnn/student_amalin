@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-  <title>Loop Example</title>
+
+  <title>Number Validation</title>
 </head>
 <body>
 
-<p id="demo"></p>
+  <input type="text" id="userInput" placeholder="Enter a number">
+  <button onclick="checkInput()">Check</button>
 
-<script>
-  let text = "";
-
-  // Use a for loop to iterate from 1 to 5
-  for (let i = 1; i <= 5; i++) {
-    text += "The number is " + i + "<br>";
-  }
-
-  // Set the innerHTML of the <p> tag to display the numbers
-  document.getElementById("demo").innerHTML = text;
-</script>
+  <script>
+    function checkInput() {
+      // Get the value entered by the user
+      var userValue = document.getElementById('userInput').value;
+      
+      // Check if the input is a valid number
+      if (isNaN(userValue) || userValue === '') {
+        alert('Please insert a number!');
+      } else {
+        // Convert input to a number
+        var number = parseFloat(userValue);
+        
+        // Check if the number is lower or higher than 10
+        if (number < 10) {
+          alert('The number is lower than 10');
+        } else {
+          alert('The number is higher than 10');
+        }
+      }
+    }
+  </script>
 
 </body>
 </html>
+
